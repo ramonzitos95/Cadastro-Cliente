@@ -7,3 +7,7 @@ c:\users\ramon\documents\visual studio 2015\Projects\Cadastro\Cadastro\obj\Debug
 c:\users\ramon\documents\visual studio 2015\Projects\Cadastro\Cadastro\obj\Debug\Cadastro.csproj.GenerateResource.Cache
 c:\users\ramon\documents\visual studio 2015\Projects\Cadastro\Cadastro\obj\Debug\Cadastro.exe
 c:\users\ramon\documents\visual studio 2015\Projects\Cadastro\Cadastro\obj\Debug\Cadastro.pdb
+C:\Users\Ramon\Documents\visual studio 2015\Projects\Cadastro\Cadastro\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ramon\Documents\visual studio 2015\Projects\Cadastro\Cadastro\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Ramon\Documents\visual studio 2015\Projects\Cadastro\Cadastro\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ramon\Documents\visual studio 2015\Projects\Cadastro\Cadastro\obj\Debug\Cadastro.TelaClientes.resources

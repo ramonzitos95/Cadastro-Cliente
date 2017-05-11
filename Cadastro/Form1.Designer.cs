@@ -41,7 +41,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.comboBoxPessoa = new System.Windows.Forms.ComboBox();
+            this.txtBoxTelefoneSecundario = new System.Windows.Forms.MaskedTextBox();
+            this.txtBoxTelefonePrincipal = new System.Windows.Forms.MaskedTextBox();
+            this.txtBoxEmail = new System.Windows.Forms.MaskedTextBox();
+            this.txtBoxCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCadastrarCliente = new System.Windows.Forms.Button();
+            this.txtBoxCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtBoxComplemento = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtBoxNumero = new System.Windows.Forms.TextBox();
@@ -54,13 +61,6 @@
             this.txtBoxCidade = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtBoxCPF_CNPJ = new System.Windows.Forms.MaskedTextBox();
-            this.txtBoxCEP = new System.Windows.Forms.MaskedTextBox();
-            this.txtBoxEmail = new System.Windows.Forms.MaskedTextBox();
-            this.txtBoxTelefonePrincipal = new System.Windows.Forms.MaskedTextBox();
-            this.txtBoxTelefoneSecundario = new System.Windows.Forms.MaskedTextBox();
-            this.comboBoxPessoa = new System.Windows.Forms.ComboBox();
-            this.btnCadastrarCliente = new System.Windows.Forms.Button();
             this.panelPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -190,6 +190,53 @@
             this.panelPrincipal.Size = new System.Drawing.Size(575, 179);
             this.panelPrincipal.TabIndex = 0;
             // 
+            // comboBoxPessoa
+            // 
+            this.comboBoxPessoa.FormattingEnabled = true;
+            this.comboBoxPessoa.Items.AddRange(new object[] {
+            "Juridica",
+            "Fisica"});
+            this.comboBoxPessoa.Location = new System.Drawing.Point(282, 7);
+            this.comboBoxPessoa.Name = "comboBoxPessoa";
+            this.comboBoxPessoa.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxPessoa.TabIndex = 2;
+            this.comboBoxPessoa.Text = "Selecione";
+            this.comboBoxPessoa.SelectedValueChanged += new System.EventHandler(this.comboBoxPessoa_SelectedValueChanged);
+            this.comboBoxPessoa.Click += new System.EventHandler(this.comboBoxPessoa_Click);
+            // 
+            // txtBoxTelefoneSecundario
+            // 
+            this.txtBoxTelefoneSecundario.Location = new System.Drawing.Point(352, 140);
+            this.txtBoxTelefoneSecundario.Mask = "(99) 00000-0000";
+            this.txtBoxTelefoneSecundario.Name = "txtBoxTelefoneSecundario";
+            this.txtBoxTelefoneSecundario.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxTelefoneSecundario.TabIndex = 9;
+            // 
+            // txtBoxTelefonePrincipal
+            // 
+            this.txtBoxTelefonePrincipal.Location = new System.Drawing.Point(125, 139);
+            this.txtBoxTelefonePrincipal.Mask = "(99) 0000-0000";
+            this.txtBoxTelefonePrincipal.Name = "txtBoxTelefonePrincipal";
+            this.txtBoxTelefonePrincipal.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxTelefonePrincipal.TabIndex = 8;
+            // 
+            // txtBoxEmail
+            // 
+            this.txtBoxEmail.Location = new System.Drawing.Point(124, 112);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(328, 20);
+            this.txtBoxEmail.TabIndex = 7;
+            // 
+            // txtBoxCPF_CNPJ
+            // 
+            this.txtBoxCPF_CNPJ.Location = new System.Drawing.Point(334, 84);
+            this.txtBoxCPF_CNPJ.Mask = "000.000.000-00";
+            this.txtBoxCPF_CNPJ.Name = "txtBoxCPF_CNPJ";
+            this.txtBoxCPF_CNPJ.Size = new System.Drawing.Size(118, 20);
+            this.txtBoxCPF_CNPJ.TabIndex = 6;
+            this.txtBoxCPF_CNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtBoxCPF_CNPJ.Leave += new System.EventHandler(this.txtBoxCPF_CNPJ_Leave);
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -211,6 +258,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(575, 158);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCadastrarCliente
+            // 
+            this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(238, 120);
+            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
+            this.btnCadastrarCliente.Size = new System.Drawing.Size(110, 27);
+            this.btnCadastrarCliente.TabIndex = 16;
+            this.btnCadastrarCliente.Text = "Cadastrar";
+            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
+            // 
+            // txtBoxCEP
+            // 
+            this.txtBoxCEP.Location = new System.Drawing.Point(69, 52);
+            this.txtBoxCEP.Mask = "00000-000";
+            this.txtBoxCEP.Name = "txtBoxCEP";
+            this.txtBoxCEP.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxCEP.TabIndex = 12;
             // 
             // txtBoxComplemento
             // 
@@ -316,71 +382,6 @@
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Endereço";
-            // 
-            // txtBoxCPF_CNPJ
-            // 
-            this.txtBoxCPF_CNPJ.Location = new System.Drawing.Point(334, 84);
-            this.txtBoxCPF_CNPJ.Mask = "000.000.000-00";
-            this.txtBoxCPF_CNPJ.Name = "txtBoxCPF_CNPJ";
-            this.txtBoxCPF_CNPJ.Size = new System.Drawing.Size(118, 20);
-            this.txtBoxCPF_CNPJ.TabIndex = 6;
-            this.txtBoxCPF_CNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.txtBoxCPF_CNPJ.Leave += new System.EventHandler(this.txtBoxCPF_CNPJ_Leave);
-            // 
-            // txtBoxCEP
-            // 
-            this.txtBoxCEP.Location = new System.Drawing.Point(69, 52);
-            this.txtBoxCEP.Mask = "00000-000";
-            this.txtBoxCEP.Name = "txtBoxCEP";
-            this.txtBoxCEP.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxCEP.TabIndex = 12;
-            // 
-            // txtBoxEmail
-            // 
-            this.txtBoxEmail.Location = new System.Drawing.Point(124, 112);
-            this.txtBoxEmail.Name = "txtBoxEmail";
-            this.txtBoxEmail.Size = new System.Drawing.Size(328, 20);
-            this.txtBoxEmail.TabIndex = 7;
-            // 
-            // txtBoxTelefonePrincipal
-            // 
-            this.txtBoxTelefonePrincipal.Location = new System.Drawing.Point(125, 139);
-            this.txtBoxTelefonePrincipal.Mask = "(99) 0000-0000";
-            this.txtBoxTelefonePrincipal.Name = "txtBoxTelefonePrincipal";
-            this.txtBoxTelefonePrincipal.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxTelefonePrincipal.TabIndex = 8;
-            // 
-            // txtBoxTelefoneSecundario
-            // 
-            this.txtBoxTelefoneSecundario.Location = new System.Drawing.Point(352, 140);
-            this.txtBoxTelefoneSecundario.Mask = "(99) 00000-0000";
-            this.txtBoxTelefoneSecundario.Name = "txtBoxTelefoneSecundario";
-            this.txtBoxTelefoneSecundario.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxTelefoneSecundario.TabIndex = 9;
-            // 
-            // comboBoxPessoa
-            // 
-            this.comboBoxPessoa.FormattingEnabled = true;
-            this.comboBoxPessoa.Items.AddRange(new object[] {
-            "Juridica",
-            "Fisica"});
-            this.comboBoxPessoa.Location = new System.Drawing.Point(282, 7);
-            this.comboBoxPessoa.Name = "comboBoxPessoa";
-            this.comboBoxPessoa.Size = new System.Drawing.Size(170, 21);
-            this.comboBoxPessoa.TabIndex = 2;
-            this.comboBoxPessoa.Text = "Selecione";
-            this.comboBoxPessoa.SelectedValueChanged += new System.EventHandler(this.comboBoxPessoa_SelectedValueChanged);
-            this.comboBoxPessoa.Click += new System.EventHandler(this.comboBoxPessoa_Click);
-            // 
-            // btnCadastrarCliente
-            // 
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(238, 120);
-            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
-            this.btnCadastrarCliente.Size = new System.Drawing.Size(110, 27);
-            this.btnCadastrarCliente.TabIndex = 16;
-            this.btnCadastrarCliente.Text = "Cadastrar";
-            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
