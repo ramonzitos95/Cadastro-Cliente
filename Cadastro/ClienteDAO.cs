@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cadastro
 {
-    class ClienteDAO : ClienteDTO
+    public class ClienteDAO : ClienteDTO
     {
-        List<ClienteDTO> listagemClientes = new List<ClienteDTO>();
+       List<ClienteDTO> listagemClientes = new List<ClienteDTO>();
 
         public void adicionarCliente(ClienteDTO cliente)
         {

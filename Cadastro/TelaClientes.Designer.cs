@@ -30,12 +30,12 @@
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listViewClientes = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.Coluna1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewClientes
@@ -51,7 +51,21 @@
             this.listViewClientes.Size = new System.Drawing.Size(644, 321);
             this.listViewClientes.TabIndex = 0;
             this.listViewClientes.UseCompatibleStateImageBehavior = false;
-            this.listViewClientes.SelectedIndexChanged += new System.EventHandler(this.listViewClientes_SelectedIndexChanged);
+            // 
+            // Coluna1
+            // 
+            this.Coluna1.Text = "Código";
+            this.Coluna1.Width = 10;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "CPF/CNPJ";
+            this.columnHeader2.Width = 20;
             // 
             // label1
             // 
@@ -81,21 +95,7 @@
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // Coluna1
-            // 
-            this.Coluna1.Text = "Código";
-            this.Coluna1.Width = 10;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Nome";
-            this.columnHeader1.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "CPF/CNPJ";
-            this.columnHeader2.Width = 20;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // TelaClientes
             // 

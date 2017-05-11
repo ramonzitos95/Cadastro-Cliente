@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arquivo.cs" />
     <Compile Include="ClienteDTO.cs" />
     <Compile Include="ClienteDAO.cs" />
     <Compile Include="Form1.cs">

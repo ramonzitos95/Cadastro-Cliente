@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cadastro
 {
-    class ClienteDTO
+    public class ClienteDTO
     {
         public int codigo { get; set; }
         public string Nome { get; set; }

@@ -20,10 +20,26 @@ namespace Cadastro
         public Form1()
         {
             InitializeComponent();
-            codigo++;
-            txtBoxCodigo.Text = codigo.ToString();
+            txtBoxCodigo.Text = serializar().ToString();
         }
 
+        public int serializar()
+        {
+            Arquivo arq = new Arquivo();
+            int contador = 0;
+            string json = arq.lerArquivo();
+            var clientes = JsonConvert.DeserializeObject<List<ClienteDTO>>(json); //Deserializando o json
+
+            if (clientes != null)
+            {
+                foreach (var c in clientes)
+                {
+                    contador = c.codigo;
+                }
+            }
+            contador += 1;
+            return contador;
+        }
        
         private void comboBoxPessoa_Click(object sender, EventArgs e)
         {
@@ -94,12 +110,13 @@ namespace Cadastro
                 cliente.logradouro = txtBoxLogradouro.Text;
                 cliente.numero = Convert.ToInt32(txtBoxNumero.Text);
                 cliente.complemento = txtBoxComplemento.Text;
+                
+                List<ClienteDTO> clientes = new List<ClienteDTO>();
+                clientes.Add(cliente);
+                string json = JsonConvert.SerializeObject(clientes);                
 
-                cliente.adicionarCliente(cliente);
-
-                string json = JsonConvert.SerializeObject(cliente);
-
-                bool cadastrou = gravacaoArquivos(json); //Gravando conteudo Json no arquivo
+                Arquivo arq = new Cadastro.Arquivo();
+                bool cadastrou =arq.gravacaoArquivos(json); //Gravando conteudo Json no arquivo
 
                 if (cadastrou)
                     MessageBox.Show("Cliente " + cliente.Nome + " cliente.cadastrado com sucesso!");
@@ -115,33 +132,6 @@ namespace Cadastro
 
         }
 
-        public static bool gravacaoArquivos(string conteudo)
-        {
-       
-            string caminho = "C:\\temp";
-            string arquivo = "cadastro.txt";
-
-            try
-            {
-                string pathString = caminho + "\\" + arquivo; //Caminho para gravar o conteudo no arquivo
-
-                if (!System.IO.File.Exists(pathString))
-                {
-                    System.IO.File.Create(pathString);
-                }
-
-                using (StreamWriter writer = new StreamWriter(pathString, true))
-                {
-                    writer.WriteLine(conteudo);
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-        }
+        
     }
 }

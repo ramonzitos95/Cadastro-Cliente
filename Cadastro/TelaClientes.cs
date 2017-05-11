@@ -14,6 +14,7 @@ namespace Cadastro
 {
     public partial class TelaClientes : Form
     {
+        Arquivo arq = new Arquivo();
         public TelaClientes()
         {
             InitializeComponent();
@@ -21,22 +22,28 @@ namespace Cadastro
 
         private void TelaClientes_Load(object sender, EventArgs e)
         {
-            List<ClienteDAO> clientes = new List<ClienteDAO>();
-            string json = lerArquivo();
-            // MessageBox.Show(json);  
-            ClienteDAO cliente = JsonConvert.DeserializeObject<ClienteDAO>(json); //Deserializando o json
-            clientes = cliente.obterClientes();
-            foreach (var c in clientes) //Adicionando clientes na lista
+            try
             {
-                cliente.adicionarCliente(c);
-            }
+                string json = arq.lerArquivo();
 
-            foreach (var c in clientes)
-            {
-                listViewClientes.Items.Add(c.codigo.ToString(), 0);
-                listViewClientes.Items.Add(c.Nome, 1);
-                listViewClientes.Items.Add(c.cpf_cnpj, 2);
+                var clientes = JsonConvert.DeserializeObject<List<ClienteDTO>>(json); //Deserializando o json
+
+                if (clientes != null)
+                {
+                    foreach (var c in clientes)
+                    {
+                        listViewClientes.Items.Add(c.codigo.ToString(), 0);
+                        listViewClientes.Items.Add(c.Nome, 1);
+                        listViewClientes.Items.Add(c.cpf_cnpj, 2);
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
 
         }
 
@@ -46,21 +53,24 @@ namespace Cadastro
             formCadastro.Show();
         }
 
-        public string lerArquivo()
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
-            string pathString = "C:\\temp\\cadastro.txt";
-            string retorno = "";
-            using (StreamReader reader = new StreamReader(pathString, true))
+            List<ClienteDTO> clientes = new List<ClienteDTO>();
+
+            if (listViewClientes.SelectedItems.Count > 0)
             {
-                retorno = reader.ReadLine();
+                for (int i = 0; i < clientes.Count; i++)
+                {
+                    if(clientes[i].codigo == Convert.ToInt64(listViewClientes.SelectedItems[0].Text))
+                    {
+                        clientes.RemoveAt(i);
+                        listViewClientes.Items.Remove(listViewClientes.SelectedItems[0]);
+                        string json = JsonConvert.SerializeObject(clientes);
+                        arq.gravacaoArquivos(json);
+                    }
+                }
             }
-
-            return retorno;
-        }
-
-        private void listViewClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            //listViewClientes.Items.RemoveAt(listViewClientes.SelectedItems.IndexOf);
         }
     }
 }
